@@ -12,10 +12,10 @@ def azimuthalAverage(image, center=None):
     
     """
     # Calculate the indices from the image
-    y, x = np.indices(image.shape)
+    y, x = np.indices(image.shape) #返回两个数据,第一个为有image.shape[1]个列向量，每个列向量为[0,image.shape[0]-1];第二个为有image.shape[0]个行向量,每个行向量为[0,image.shape[1]-1]
 
     if not center:
-        center = np.array([(x.max()-x.min())/2.0, (y.max()-y.min())/2.0])
+        center = np.array([(x.max()-x.min())/2.0, (y.max()-y.min())/2.0])  #取image中心坐标(不过这里它的x对应image横轴,y对应image纵轴)
 
     r = np.hypot(x - center[0], y - center[1])
 
